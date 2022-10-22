@@ -7,11 +7,11 @@ export const ProductContext = createContext();
 
 const Root = () => {
   return (
-    <div>
+    <ProductContext.Provider value={[]}>
       <Header />
       <Outlet />
       <Footer />
-    </div>
+    </ProductContext.Provider>
   );
 };
 
