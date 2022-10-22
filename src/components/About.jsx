@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ProductContext } from "./Root";
 
 const About = () => {
+  const products = useContext(ProductContext);
+  console.log(products.length, "about page");
   return (
     <section className="bg-gray-100 text-gray-900">
       <div className="container flex flex-col items-center p-4 mx-auto md:p-8">
