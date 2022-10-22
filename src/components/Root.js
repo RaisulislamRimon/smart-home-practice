@@ -6,9 +6,6 @@ import Header from "./Header";
 export const ProductContext = createContext();
 
 const Root = () => {
-  const products = useLoaderData();
-  console.log(products);
-  console.log(products.length);
   return (
     <ProductContext.Provider value={[]}>
       <Header />
