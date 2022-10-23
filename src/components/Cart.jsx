@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { removeFromDb } from "../utils/fakeDB";
+import { deleteShoppingCart, removeFromDb } from "../utils/fakeDB";
 import CartItem from "./CartItem";
 import { CartContext } from "./Root";
 
@@ -22,6 +22,15 @@ const Cart = () => {
   for (const product of cart) {
     total = total + product.price * product.quantity;
   }
+
+  const orderHandler = () => {
+    if (cart.length) {
+      setCart([]);
+      deleteShoppingCart();
+      return toast.success("Products ordered successfully.");
+    }
+    return toast.error("Cart is empty");
+  };
 
   return (
     <div className="flex min-h-screen items-start justify-center bg-gray-100 text-gray-900">
@@ -56,6 +65,7 @@ const Cart = () => {
             </button>
           </Link>
           <button
+            onClick={orderHandler}
             type="button"
             className="px-6 py-2 border font-semibold rounded-full hover:bg-cyan-400 bg-cyan-200 text-gray-800"
           >
