@@ -20,7 +20,7 @@ const Shop = () => {
     if (!exists) {
       product.quantity = 1;
       newCart = [...cart, product];
-      newCart.push(product);
+      // newCart.push(product);
     } else {
       const rest = cart.filter((pd) => pd.id !== product.id);
       exists.quantity = exists.quantity + 1;
@@ -28,7 +28,7 @@ const Shop = () => {
     }
     setCart(newCart);
     addToDb(product.id);
-    toast.success("Product added!", { autoClose: 5000 });
+    toast.info("Product added!", { autoClose: 5000 });
   };
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
